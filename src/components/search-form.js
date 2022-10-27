@@ -8,6 +8,7 @@ class SearchForm extends React.Component {
         
         this.state = {
             inputValue: '',
+            searchValue: ''
         }
     }
 
@@ -18,23 +19,29 @@ class SearchForm extends React.Component {
     render() {
         const clickHandler = () => {
             this.props.onSubmit(this.state.inputValue)
+            this.setState({
+                searchValue: this.state.inputValue
+            })
         }
 
         return (
-            <Flex mx={-2} alignItems='center'>
-                <Box width={2 / 3} px={2}>
-                    <Input
-                        type='text' onChange={this.inputHandler}
-                        placeholder='Masukkan Nama Mahasiswa'
-                    />
-                </Box>
-                <Box width={1 / 3} px={2}>
-                    <Button variant='primary' bg='blue' ml={2}
-                        onClick={clickHandler}>
-                        Submit
-                    </Button>
-                </Box>
-            </Flex>
+            <>
+                <Flex mx={-2} alignItems='center'>
+                    <Box width={2 / 3} px={2}>
+                        <Input
+                            type='text' onChange={this.inputHandler}
+                            placeholder='Masukkan Nama Mahasiswa'
+                        />
+                    </Box>
+                    <Box width={1 / 3} px={2}>
+                        <Button variant='primary' bg='blue' ml={2}
+                            onClick={clickHandler}>
+                            Submit
+                        </Button>
+                    </Box>
+                </Flex>
+                <Box marginTop='20px'>Hasil Pencarian : {this.state.searchValue}</Box>
+            </>
         )
     }
 }
