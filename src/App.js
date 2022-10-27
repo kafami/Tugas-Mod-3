@@ -4,6 +4,7 @@ import MahasiswaCard from './components/mahasiswa-card'
 import SearchForm from './components/search-form'
 import Clock from './components/Jam'
 import Angkatan from './components/Angkatan'
+import Jurusan from './components/Jurusan'
 
 function App() {
   const [displayNotFoundText, setDisplayNotFoundText] = useState('none')
@@ -51,6 +52,7 @@ return (
     <Box>
       <Clock/>
       <Angkatan/>
+      <Jurusan/>
       <SearchForm onSubmit={submitHandler} />
       
       <Heading mt='50px' display={displayNotFoundText}>Data not found</Heading>
